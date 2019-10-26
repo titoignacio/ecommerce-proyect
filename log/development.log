@@ -4820,3 +4820,167 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 270ms (Views: 213.7ms | ActiveRecord: 11.3ms)
 
 
+Started GET "/orders" for 127.0.0.1 at 2019-10-26 15:35:26 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered orders/index.html.erb within layouts/application (27.5ms)
+  Rendered shared/_navbar.html.erb (1.2ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 278ms (Views: 214.1ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/billings/pre_pay" for 127.0.0.1 at 2019-10-26 15:35:31 -0300
+Processing by BillingsController#pre_pay as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (4.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+PayPal-Request-Id: dec0ea7d-a57a-455d-abac-a893bd47ae9d
+Request[post]: https://api.sandbox.paypal.com/v1/oauth2/token
+Request.body=grant_type=client_credentials	request.header={"User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "Content-Type"=>"application/x-www-form-urlencoded", "Authorization"=>"Basic QVF0aUNjNDcwNWJIUklGZ2l1Y0JBR1oyaGs5NnhhR01yNGQ5dnV1ODlMZVNJQ2NuLTBLMTU5Z19CdEV0ZlMyVWtIXzgyZzhlZEZVYlAweUQ6RUZSUFBnTkZ2V0JtTWhhcEI5bG1RNVdDcVFrQ204T21ZelBkLURIRnYxQkV5cjN3ajBlSzYtSV9NZ0h3QVV0eG8yY3Z0YzhP", "PayPal-Request-Id"=>"dec0ea7d-a57a-455d-abac-a893bd47ae9d"}
+Response[401]: Unauthorized, Duration: 4.485s
+Response.body={"error":"invalid_client","error_description":"Client Authentication failed"}	Response.header={"date"=>["Sat, 26 Oct 2019 18:35:35 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["21148268e2408", "21148268e2408"], "x-paypal-token-service"=>["IAAS"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D4153521245%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:05:35 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["77"], "connection"=>["close"], "content-type"=>["application/json"]}
+Completed 500 Internal Server Error in 4554ms (ActiveRecord: 11.6ms)
+
+
+  
+PayPal::SDK::Core::Exceptions::UnauthorizedAccess (Failed.  Response code = 401.  Response message = Unauthorized.  Response debug ID = 21148268e2408, 21148268e2408.):
+  
+app/controllers/billings_controller.rb:28:in `pre_pay'
+Started GET "/orders" for 127.0.0.1 at 2019-10-26 15:58:47 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered orders/index.html.erb within layouts/application (27.5ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+Completed 200 OK in 278ms (Views: 219.6ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/billings/pre_pay" for 127.0.0.1 at 2019-10-26 15:58:49 -0300
+Processing by BillingsController#pre_pay as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+PayPal-Request-Id: c5a41c96-4b98-41b6-9703-b70619e9bea1
+Request[post]: https://api.sandbox.paypal.com/v1/oauth2/token
+Request.body=grant_type=client_credentials	request.header={"User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "Content-Type"=>"application/x-www-form-urlencoded", "Authorization"=>"Basic QWVKWklVMlJyenFLMExRdE1TTVVSWFBweWdWQ01TTGpZZkpla0tjazlkODktWDVEVVFpU0JzaG5LOHVNU2FXSXhBRE1ISkJrNmc5dnhTalY6RUtxc1NGNV8tZFJVOE1MV3JLOGxHRXZVVlNmUDQ5VldPVDg4dGF1enZCLUpmT2d2Qi12eGFsdGlpX3o2TU9vTVZTc2NfYURwdFVFaXJiZ04=", "PayPal-Request-Id"=>"c5a41c96-4b98-41b6-9703-b70619e9bea1"}
+Response[200]: OK, Duration: 2.049s
+Response.body={"scope":"https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks","access_token":"A21AAFQb1p3v-2F-2-mtnixtzcDvmzPkTF4RxnsO5YdMiI6g8Qr_n9Ls9rCmpMzUaNC7Q-46IYKR5bsNqWLIgJ-T3_a8ddTcA","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32400,"nonce":"2019-10-26T18:58:51Z8xBj6jlpn-BIv4MXHdOzbC1zqQ82pDChD13hGTBiGEA"}	Response.header={"date"=>["Sat, 26 Oct 2019 18:58:51 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["15cc9b51b1748", "15cc9b51b1748"], "x-paypal-token-service"=>["IAAS"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D1805104221%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:28:51 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["918"], "connection"=>["close"], "content-type"=>["application/json"]}
+PayPal-Request-Id: c5a41c96-4b98-41b6-9703-b70619e9bea1
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment
+Request.body={"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"214"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"sku":"16","name":"Ergonomic Steel Computer","quantity":"1","price":"69","currency":"USD"},{"sku":"17","name":"Practical Copper Car","quantity":"1","price":"62","currency":"USD"},{"sku":"18","name":"Small Leather Gloves","quantity":"1","price":"83","currency":"USD"}]}}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute","cancel_url":"http://localhost:3000/"}}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAFQb1p3v-2F-2-mtnixtzcDvmzPkTF4RxnsO5YdMiI6g8Qr_n9Ls9rCmpMzUaNC7Q-46IYKR5bsNqWLIgJ-T3_a8ddTcA", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "PayPal-Request-Id"=>"c5a41c96-4b98-41b6-9703-b70619e9bea1"}
+Response[201]: Created, Duration: 2.822s
+Response.body={"id":"PAYID-LW2JO3Q8H104133TK440553C","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"214.00","currency":"USD"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"name":"Ergonomic Steel Computer","sku":"16","price":"69.00","currency":"USD","quantity":1},{"name":"Practical Copper Car","sku":"17","price":"62.00","currency":"USD","quantity":1},{"name":"Small Leather Gloves","sku":"18","price":"83.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2019-10-26T18:58:54Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JO3Q8H104133TK440553C","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4P24651776943584V","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JO3Q8H104133TK440553C/execute","rel":"execute","method":"POST"}]}	Response.header={"date"=>["Sat, 26 Oct 2019 18:58:54 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["6da5d82470eb", "6da5d82470eb"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D1855435869%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:28:54 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["986"], "connection"=>["close"], "content-type"=>["application/json"]}
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4P24651776943584V
+Completed 302 Found in 5085ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/billings/pre_pay" for 127.0.0.1 at 2019-10-26 15:58:58 -0300
+Processing by BillingsController#pre_pay as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+PayPal-Request-Id: 66279607-9352-4b07-b103-b58e2c381f09
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment
+Request.body={"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"214"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"sku":"16","name":"Ergonomic Steel Computer","quantity":"1","price":"69","currency":"USD"},{"sku":"17","name":"Practical Copper Car","quantity":"1","price":"62","currency":"USD"},{"sku":"18","name":"Small Leather Gloves","quantity":"1","price":"83","currency":"USD"}]}}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute","cancel_url":"http://localhost:3000/"}}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAFQb1p3v-2F-2-mtnixtzcDvmzPkTF4RxnsO5YdMiI6g8Qr_n9Ls9rCmpMzUaNC7Q-46IYKR5bsNqWLIgJ-T3_a8ddTcA", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "PayPal-Request-Id"=>"66279607-9352-4b07-b103-b58e2c381f09"}
+Response[201]: Created, Duration: 2.034s
+Response.body={"id":"PAYID-LW2JO5A78D87545U9230183J","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"214.00","currency":"USD"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"name":"Ergonomic Steel Computer","sku":"16","price":"69.00","currency":"USD","quantity":1},{"name":"Practical Copper Car","sku":"17","price":"62.00","currency":"USD","quantity":1},{"name":"Small Leather Gloves","sku":"18","price":"83.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2019-10-26T18:59:00Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JO5A78D87545U9230183J","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-5PY15930RK638723S","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JO5A78D87545U9230183J/execute","rel":"execute","method":"POST"}]}	Response.header={"date"=>["Sat, 26 Oct 2019 18:59:00 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["51b873c42adf9", "51b873c42adf9"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D1956099165%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:29:00 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["986"], "connection"=>["close"], "content-type"=>["application/json"]}
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-5PY15930RK638723S
+Completed 302 Found in 2073ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/billings/pre_pay" for 127.0.0.1 at 2019-10-26 16:04:55 -0300
+Processing by BillingsController#pre_pay as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+PayPal-Request-Id: c409dc98-a8ca-42bc-9e10-bc0a17ae836c
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment
+Request.body={"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"214"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"sku":"16","name":"Ergonomic Steel Computer","quantity":"1","price":"69","currency":"USD"},{"sku":"17","name":"Practical Copper Car","quantity":"1","price":"62","currency":"USD"},{"sku":"18","name":"Small Leather Gloves","quantity":"1","price":"83","currency":"USD"}]}}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute","cancel_url":"http://localhost:3000/"}}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAFQb1p3v-2F-2-mtnixtzcDvmzPkTF4RxnsO5YdMiI6g8Qr_n9Ls9rCmpMzUaNC7Q-46IYKR5bsNqWLIgJ-T3_a8ddTcA", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "PayPal-Request-Id"=>"c409dc98-a8ca-42bc-9e10-bc0a17ae836c"}
+Response[201]: Created, Duration: 1.971s
+Response.body={"id":"PAYID-LW2JRWI61855409VD7887630","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"214.00","currency":"USD"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"name":"Ergonomic Steel Computer","sku":"16","price":"69.00","currency":"USD","quantity":1},{"name":"Practical Copper Car","sku":"17","price":"62.00","currency":"USD","quantity":1},{"name":"Small Leather Gloves","sku":"18","price":"83.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2019-10-26T19:04:56Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JRWI61855409VD7887630","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-76E765957D170770E","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JRWI61855409VD7887630/execute","rel":"execute","method":"POST"}]}	Response.header={"date"=>["Sat, 26 Oct 2019 19:04:56 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["ad7486d2bea93", "ad7486d2bea93"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D3633886301%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:34:57 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["986"], "connection"=>["close"], "content-type"=>["application/json"]}
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-76E765957D170770E
+Completed 302 Found in 2013ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/billings/pre_pay" for 127.0.0.1 at 2019-10-26 16:05:00 -0300
+Processing by BillingsController#pre_pay as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mOrder Load (1.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 2], ["payed", "f"]]
+  [1m[36mProduct Load (7.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+PayPal-Request-Id: 05f29f9a-1fdf-474a-b3f6-fa11c1ae06ae
+Request[post]: https://api.sandbox.paypal.com/v1/payments/payment
+Request.body={"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"214"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"sku":"16","name":"Ergonomic Steel Computer","quantity":"1","price":"69","currency":"USD"},{"sku":"17","name":"Practical Copper Car","quantity":"1","price":"62","currency":"USD"},{"sku":"18","name":"Small Leather Gloves","quantity":"1","price":"83","currency":"USD"}]}}],"redirect_urls":{"return_url":"http://localhost:3000/billings/execute","cancel_url":"http://localhost:3000/"}}	request.header={"X-PAYPAL-SANDBOX-EMAIL-ADDRESS"=>"Platform.sdk.seller@gmail.com", "Authorization"=>"Bearer A21AAFQb1p3v-2F-2-mtnixtzcDvmzPkTF4RxnsO5YdMiI6g8Qr_n9Ls9rCmpMzUaNC7Q-46IYKR5bsNqWLIgJ-T3_a8ddTcA", "Content-Type"=>"application/json", "User-Agent"=>"PayPalSDK/PayPal-Ruby-SDK 1.7.3 (paypal-sdk-core 1.7.3; ruby 2.6.3p62-x86_64-linux;OpenSSL 1.1.1  11 Sep 2018)", "PayPal-Request-Id"=>"05f29f9a-1fdf-474a-b3f6-fa11c1ae06ae"}
+Response[201]: Created, Duration: 1.735s
+Response.body={"id":"PAYID-LW2JRXI8C500499JW625123H","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"214.00","currency":"USD"},"description":"Compra desde E-commerce Rails.","item_list":{"items":[{"name":"Ergonomic Steel Computer","sku":"16","price":"69.00","currency":"USD","quantity":1},{"name":"Practical Copper Car","sku":"17","price":"62.00","currency":"USD","quantity":1},{"name":"Small Leather Gloves","sku":"18","price":"83.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2019-10-26T19:05:01Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JRXI8C500499JW625123H","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-41E677084W2299355","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-LW2JRXI8C500499JW625123H/execute","rel":"execute","method":"POST"}]}	Response.header={"date"=>["Sat, 26 Oct 2019 19:05:01 GMT"], "server"=>["Apache"], "paypal-debug-id"=>["e94f423b3047b", "e94f423b3047b"], "content-language"=>["*"], "http_x_pp_az_locator"=>["sandbox.slc"], "set-cookie"=>["X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D3717772381%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Sat, 26 Oct 2019 19:35:01 GMT; domain=.paypal.com; path=/; Secure; HttpOnly", "X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT"], "vary"=>["Authorization"], "content-length"=>["986"], "connection"=>["close"], "content-type"=>["application/json"]}
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-41E677084W2299355
+Completed 302 Found in 1792ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-26 16:19:51 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial shared/__carroussel with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/hector/Documentos/ecommerce-proyect/app/views"
+  * "/home/hector/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views"
+):
+    1: <%= render "shared/_carroussel"%>
+    2: <div class="container">
+    3:   <div class="row">
+    4:     <% @products.each_slice(4) do |row| %>
+  
+app/views/products/index.html.erb:1:in `_app_views_products_index_html_erb___1907002695279332118_47158338214640'
+Started GET "/" for 127.0.0.1 at 2019-10-26 16:20:03 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial shared/__carroussel with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/hector/Documentos/ecommerce-proyect/app/views"
+  * "/home/hector/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views"
+):
+    1: <%= render "shared/_carroussel"%>
+    2: <div class="container">
+    3:   <div class="row">
+    4:     <% @products.each_slice(4) do |row| %>
+  
+app/views/products/index.html.erb:1:in `_app_views_products_index_html_erb___1907002695279332118_47158322551020'
