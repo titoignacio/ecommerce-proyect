@@ -5068,3 +5068,35 @@ Completed 200 OK in 3771ms (Views: 1838.3ms | ActiveRecord: 1925.6ms)
 
 >>>>>>> carrousel
 >>>>>>> development
+Started GET "/" for 127.0.0.1 at 2019-10-27 18:53:21 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial shared/__carroussel with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/hector/Documentos/ecommerce-proyect/app/views"
+  * "/home/hector/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views"
+):
+    1: <<<<<<< HEAD
+    2: <%= render "shared/_carroussel"%>
+    3: 
+    4: =======
+    5: <%= render "shared/carroussel"%>
+  
+app/views/products/index.html.erb:2:in `_app_views_products_index_html_erb___2789543723260459814_46969852178100'
+Started GET "/" for 127.0.0.1 at 2019-10-27 18:54:35 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (2.2ms)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (53.8ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+Completed 200 OK in 241ms (Views: 222.6ms | ActiveRecord: 14.0ms)
+
+
