@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Carro2"
+  config.site_title = "Carro"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -215,7 +215,8 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-
+  config.register_javascript 'chart.js/dist/Chart.js'
+  config.register_javascript 'chartkick/dist/chartkick.js'
   # == CSV options
   #
   # Set the CSV builder separator
