@@ -155,6 +155,8 @@ Devise.setup do |config|
   # secure: true in order to force SSL only cookies.
   # config.rememberable_options = {}
 
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
+
   # ==> Configuration for :validatable
   # Range for password length.
   config.password_length = 6..128
