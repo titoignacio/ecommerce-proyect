@@ -18,7 +18,34 @@
   margin-top: 40px;
 }
 
+<<<<<<< HEAD
 body {
   background-color: #EDFDFE;
   text-align: center;
 }
+=======
+.micarro{
+  height: 30px;
+}
+
+.logg{
+  width: 5vw;
+}
+
+h1{
+  text-align: center;
+}
+
+.estilo{
+
+background-color: #6b757d;
+}
+
+.modificar{
+  height: 200px;
+}
+
+body{
+  background-color: #F0F1F1;
+}
+>>>>>>> development

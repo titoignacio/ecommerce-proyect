@@ -13,8 +13,10 @@ gem 'pg', '~> 0.18'
 gem 'devise'
 gem 'faker'
 gem 'paypal-sdk-rest'
+gem 'chartkick'
 gem 'activeadmin'
-
+gem 'omniauth-facebook'
+gem 'cancancan'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
