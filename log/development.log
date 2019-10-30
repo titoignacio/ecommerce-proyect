@@ -17839,3 +17839,307 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 136ms (Views: 127.3ms | ActiveRecord: 3.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:17:21 -0300
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (2.4ms)
+  [1m[35m (38.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (1.7ms)
+  Rendered products/index.html.erb within layouts/application (189.8ms)
+  [1m[36mUser Load (41.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (85.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (263.0ms)
+  Rendered shared/_alert.html.erb (2.4ms)
+Completed 200 OK in 3583ms (Views: 3293.8ms | ActiveRecord: 258.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-10-30 10:17:51 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bMxy0gZR6Tc+TXWQejPhHtz1ahcDyx2nAIAbfsyyBQqyXwBwTVtmW2NzXGhME+G6wEOQCBzGIbpoGOKsqVykhg=="}
+  [1m[36mAdminUser Load (90.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 96.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:17:51 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (0.9ms)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (0.8ms)
+  Rendered products/index.html.erb within layouts/application (12.9ms)
+  Rendered shared/_navbar.html.erb (3.6ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+Completed 200 OK in 50ms (Views: 45.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-30 10:17:57 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (193.4ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_alert.html.erb (0.8ms)
+Completed 200 OK in 272ms (Views: 269.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-10-30 10:18:03 -0300
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-10-30 10:18:04 -0300
+Started GET "/users/auth/facebook/callback?code=AQAcK4ShMsXjd2YlLWB0wpXK5ZUcXjFGJl7FTBoHgOk8m3GXe3EE6-U8Js_TV7YGqt29XsRL1iORPK2NFl4J0lJYonPA4J-b8j8-L3tU0B8ZW1ohznOmpeq6pN2q7tbGSuVmtur03Qe0uxHGb0fPfYRh108VEdyl33z3DUn8dreQw1QcCyoGafvOJWlWHDK_fTke16-C9fdao2S0CyRAD3e6-0N34aecjFYnPOS2nvrU8RgOUQ0ivz08mHqJSru9hCgZMtz-gBy9Wgr_4GeGmmGoUobSEukyclZT9P4g0E_LjHYcgQAtYwxkLqfOeHdgBJ8&state=774539fde02d06679f22e7e481515b74cc2fe790477686f3" for 127.0.0.1 at 2019-10-30 10:18:05 -0300
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAcK4ShMsXjd2YlLWB0wpXK5ZUcXjFGJl7FTBoHgOk8m3GXe3EE6-U8Js_TV7YGqt29XsRL1iORPK2NFl4J0lJYonPA4J-b8j8-L3tU0B8ZW1ohznOmpeq6pN2q7tbGSuVmtur03Qe0uxHGb0fPfYRh108VEdyl33z3DUn8dreQw1QcCyoGafvOJWlWHDK_fTke16-C9fdao2S0CyRAD3e6-0N34aecjFYnPOS2nvrU8RgOUQ0ivz08mHqJSru9hCgZMtz-gBy9Wgr_4GeGmmGoUobSEukyclZT9P4g0E_LjHYcgQAtYwxkLqfOeHdgBJ8", "state"=>"774539fde02d06679f22e7e481515b74cc2fe790477686f3"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10221360453821248"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2019-10-30 13:18:06.428527"], ["last_sign_in_at", "2019-10-30 04:35:55.317974"], ["sign_in_count", 9], ["updated_at", "2019-10-30 13:18:06.432870"], ["id", 7]]
+  [1m[35m (38.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 57.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:18:06 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (3.1ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (1.0ms)
+  Rendered products/index.html.erb within layouts/application (25.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (5.1ms)
+  Rendered shared/_alert.html.erb (0.7ms)
+Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2019-10-30 10:18:34 -0300
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT price * quantity FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 7], ["payed", "f"]]
+  Rendering orders/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."payed" = $2[0m  [["user_id", 7], ["payed", "f"]]
+  Rendered orders/index.html.erb within layouts/application (4.2ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_alert.html.erb (0.7ms)
+Completed 200 OK in 75ms (Views: 55.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:18:36 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (3.1ms)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (2.7ms)
+  Rendered products/index.html.erb within layouts/application (37.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (5.0ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 122ms (Views: 113.8ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-10-30 10:18:43 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yYrBkQgdoNuHXszbONOb6X3yOP5rDMSRR7YjW/Dyom3R+8qDc4Em/0wQhB3Yp3CI6J9dDHS2x+/GVJcySfstEQ=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:18:43 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (0.5ms)
+  Rendered products/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2019-10-30 10:18:48 -0300
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/shared/_links.erb (1.8ms)
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (137.1ms)
+Completed 200 OK in 1558ms (Views: 1556.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2019-10-30 10:18:58 -0300
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rOtNFb9wkfnhMRBeJfFGot3oFhBNeNXiN3FXnK6mCcn2P+6XReeshlzbKiXup8huyVsMNIGyJ3ucIWGODfJ6Jg==", "admin_user"=>{"email"=>"h.villalobosm03@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (2.0ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["email", "h.villalobosm03@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 977ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2019-10-30 10:18:59 -0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/page/index.html.arb
+  Rendered shared/_chart.html.erb (45.6ms)
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/page/index.html.arb (133.4ms)
+Completed 200 OK in 187ms (Views: 151.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2019-10-30 10:19:03 -0300
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (1.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb (326.1ms)
+Completed 200 OK in 375ms (Views: 336.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2019-10-30 10:19:06 -0300
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (1.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (45.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1[0m  [["namespace", "admin"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 LIMIT $2 OFFSET $3) subquery_for_count[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 LIMIT $2 OFFSET $3) subquery_for_count[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1[0m  [["namespace", "admin"]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 LIMIT $2 OFFSET $3) subquery_for_count[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Load (0.4ms)[0m  [1m[34mSELECT  "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 ORDER BY "active_admin_comments"."id" desc LIMIT $2 OFFSET $3[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments" ORDER BY resource_type asc[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments" ORDER BY author_type asc[0m
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb (227.7ms)
+Completed 200 OK in 275ms (Views: 188.0ms | ActiveRecord: 69.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2019-10-30 10:19:11 -0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb (129.8ms)
+Completed 200 OK in 135ms (Views: 128.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/admin/users/4/edit" for 127.0.0.1 at 2019-10-30 10:19:15 -0300
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAdminUser Load (1.1ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/edit.html.arb (111.4ms)
+Completed 200 OK in 243ms (Views: 118.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2019-10-30 10:19:19 -0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/index.html.arb (164.8ms)
+Completed 200 OK in 180ms (Views: 169.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/admin/users/6" for 127.0.0.1 at 2019-10-30 10:19:22 -0300
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3 LIMIT $4 OFFSET $5[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Load (0.5ms)[0m  [1m[34mSELECT  "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3 ORDER BY created_at ASC LIMIT $4 OFFSET $5[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"], ["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1[0m
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/show.html.arb (200.0ms)
+Completed 200 OK in 233ms (Views: 221.7ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/admin/comments" for 127.0.0.1 at 2019-10-30 10:19:27 -0300
+Processing by Admin::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TQ2/VyQrjotBDaFuexM4svTkg1wzF3UIUWts92wzgt1rDANW4JvAywjN5NwkzlclXI9csro0v1qv4ZgD77uqKw==", "active_admin_comment"=>{"resource_type"=>"User", "resource_id"=>"6", "body"=>"fgfdgdfgfd"}, "commit"=>"Add Comment"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (74.5ms)[0m  [1m[32mINSERT INTO "active_admin_comments" ("namespace", "body", "resource_type", "resource_id", "author_type", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["namespace", "admin"], ["body", "fgfdgdfgfd"], ["resource_type", "User"], ["resource_id", 6], ["author_type", "AdminUser"], ["author_id", 1], ["created_at", "2019-10-30 13:19:27.259664"], ["updated_at", "2019-10-30 13:19:27.259664"]]
+  [1m[35m (39.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/6
+Completed 302 Found in 142ms (ActiveRecord: 117.8ms)
+
+
+Started GET "/admin/users/6" for 127.0.0.1 at 2019-10-30 10:19:27 -0300
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdminUser Load (1.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3 LIMIT $4 OFFSET $5[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Load (0.3ms)[0m  [1m[34mSELECT  "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3 ORDER BY created_at ASC LIMIT $4 OFFSET $5[0m  [["resource_type", "User"], ["resource_id", 6], ["namespace", "admin"], ["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1[0m
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/resource/show.html.arb (172.0ms)
+Completed 200 OK in 192ms (Views: 179.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/logout" for 127.0.0.1 at 2019-10-30 10:19:31 -0300
+Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"btKpXvrcQzqj+P4Jgio7b7EcVj9edTRZDzR/aZ4u4OpI0xVfPmwNeuo4u7vd91T4GXeJ0ddW/gvxvoudHabIHA=="}
+  [1m[36mAdminUser Load (1.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2019-10-30 10:19:31 -0300
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2019-10-30 10:19:31 -0300
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/shared/_links.erb (1.5ms)
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (34.6ms)
+Completed 200 OK in 113ms (Views: 108.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 10:19:37 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (0.4ms)
+  Rendered products/index.html.erb within layouts/application (7.6ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_alert.html.erb (1.0ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 1.0ms)
+
+
