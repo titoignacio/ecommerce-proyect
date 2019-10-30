@@ -16777,3 +16777,97 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-10-30 00:38:14 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.2ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+Completed 200 OK in 324ms (Views: 300.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-10-30 00:38:17 -0300
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-10-30 00:38:17 -0300
+Started GET "/users/auth/facebook/callback?code=AQBlgob4k25So2_WFYLaJA2xqPYQrdvVz5rwn_7fhzWMQ2RjSXvNwIVDs_3FqimO6MjHBBCL5n3qG7JmntBbiKWrR5GnsgFEAwitxmeD0-sm6pUM8STsQL3_UJTzKa3tIIinB2qI81J89nZEAdws1cPecAV3J6RQDzsbV_ZeBYZV9382GU8MrpIl_3lu4E_CMRxOOYbWB7Lu9yNsgCVNr96qhHv_BYChpfSEIxMaMZE-oxndS3CRw8ixJHBSaFBDxIx6SbDz_58DdTtgNsyZ5RWe0JNsRXLK1wJ-H6TiUJGs9vI3twTQ7kFo-oxJoyhxVJY&state=6bdaf75c13e77fafcb083a8ea15b684e29431e24cd20ee97" for 127.0.0.1 at 2019-10-30 00:38:17 -0300
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBlgob4k25So2_WFYLaJA2xqPYQrdvVz5rwn_7fhzWMQ2RjSXvNwIVDs_3FqimO6MjHBBCL5n3qG7JmntBbiKWrR5GnsgFEAwitxmeD0-sm6pUM8STsQL3_UJTzKa3tIIinB2qI81J89nZEAdws1cPecAV3J6RQDzsbV_ZeBYZV9382GU8MrpIl_3lu4E_CMRxOOYbWB7Lu9yNsgCVNr96qhHv_BYChpfSEIxMaMZE-oxndS3CRw8ixJHBSaFBDxIx6SbDz_58DdTtgNsyZ5RWe0JNsRXLK1wJ-H6TiUJGs9vI3twTQ7kFo-oxJoyhxVJY", "state"=>"6bdaf75c13e77fafcb083a8ea15b684e29431e24cd20ee97"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10221360453821248"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2019-10-30 03:38:18.639694"], ["last_sign_in_at", "2019-10-30 03:03:48.298517"], ["sign_in_count", 7], ["updated_at", "2019-10-30 03:38:18.644379"], ["id", 7]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 55ms (ActiveRecord: 22.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 00:38:18 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (2.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (0.6ms)
+  Rendered products/index.html.erb within layouts/application (35.4ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (14.9ms)
+Completed 200 OK in 136ms (Views: 109.7ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 00:38:55 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (0.9ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (0.8ms)
+  Rendered products/index.html.erb within layouts/application (14.1ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (2.9ms)
+Completed 200 OK in 50ms (Views: 45.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-30 00:40:39 -0300
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered shared/_carroussel.html.erb (3.2ms)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered shared/_footer.html.erb (1.8ms)
+  Rendered products/index.html.erb within layouts/application (31.3ms)
+  Rendered shared/_alert.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered shared/_navbar.html.erb (3.5ms)
+Completed 200 OK in 117ms (Views: 109.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2019-10-30 00:43:03 -0300
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/shared/_links.erb (4.2ms)
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (199.4ms)
+Completed 200 OK in 1455ms (Views: 1398.9ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2019-10-30 00:43:12 -0300
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3MFNkXBxy28lRqnlP87w5OHAxEVpwF58AL4iOHbBr4LiWr50txwns+HOFuUNQnZ+wiqdYtSqbku9+OaV7wGCFQ==", "admin_user"=>{"email"=>"h.villalobosm03@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (2.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["email", "h.villalobosm03@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 582ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2019-10-30 00:43:13 -0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/page/index.html.arb
+  Rendered shared/_chart.html.erb (46.1ms)
+  Rendered /home/hector/.rvm/gems/ruby-2.6.3/gems/activeadmin-2.4.0/app/views/active_admin/page/index.html.arb (268.6ms)
+Completed 200 OK in 486ms (Views: 367.7ms | ActiveRecord: 1.6ms)
+
+
